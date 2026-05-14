@@ -1,0 +1,96 @@
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 1998  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
+##
+## Project: NUMARIS/4
+##    File: \n4\pkg\MrServers\MrImaging\seq\lm_Spiral_DiffSE_Multi\makefile.trs
+## Version:
+##  Author: LANDWIPD
+##  Charge: LM
+##    Date: n.a. 
+##
+##    Lang: make
+##
+## Descrip: Makefile fuer Sequenz-DLL
+##
+##-----------------------------------------------------------------------------
+
+##-----------------------------------------------------------------------------
+## Naehere Informationen zum den moeglichen Macros im Makefile siehe
+## MedMake-Dokumentation Q:/csw/MedMake/html/contents_t6.html
+##
+NOSYNGO() 
+
+
+##-----------------------------------------------------------------------------
+## enter local compiler flags
+##
+
+CPPFLAGS (-D_CONSOLE)
+CPPFLAGS (-DBUILD_SEQU)
+CPPFLAGS (-DSEQUENCE_CLASS)
+CPPFLAGS (-DSEQUENCE_CLASS_lm_Spiral_D11)
+CPPFLAGS (-DMRPROT_DEP_OPT)
+CPPFLAGS (-DSEQ_NAMESPACE=SEQ_LM_SPIRAL_MSEDW_D11)
+CPPFLAGS (-DVX_VERSION=041104)
+
+# Defines for WIPParameterTool
+CPPFLAGS (-DWPT_NAMESPACE=lm_Spiral_WPT)
+CPPFLAGS (-DBUILD_WIPParameterTool)
+
+
+##-----------------------------------------------------------------------------
+## enter include paths
+##
+INCLPATHS (-I /n4_extsw/x86/extsw/MedCom/include)
+
+
+
+##-----------------------------------------------------------------------------
+## enter source files
+##
+CPPSOURCES(lm_Spiral_MultiSE)
+CPPSOURCES(lm_Spiral_MultiSE_UI)
+CPPSOURCES(Diff)
+CPPSOURCESFROM(FileReadBase,		../common/Utils)
+CPPSOURCESFROM(ReadExternalDiffDir, ../common/Utils)
+CPPSOURCESFROM(ReadExternalSpiral,	../common/Utils)
+CPPSOURCESFROM(myGradient,			../common/Utils)
+CPPSOURCESFROM(myDiffusionNumbers,	../common/Utils)
+CPPSOURCESFROM(helpfulFunctions,	../common/Utils)
+CPPSOURCESFROM(ReadFWFLund,			../common/Utils)
+CPPSOURCESFROM(Read3Trajs,			../common/Utils)
+CPPSOURCESFROM(SeqLoopLongTRTrig,   ../common/SeqLoopLongTRTrig) ##//SeqLoop
+
+##-----------------------------------------------------------------------------
+## enter link libraries
+##
+LDLIBS (Sequence)
+LDLIBS (libSBB)
+LDLIBS (libSSL)
+LDLIBS (libRT)
+LDLIBS (SeqBuffer)
+LDLIBS (libSeqUtil)
+LDLIBS (libSeqUT)
+LDLIBS (libUICtrl)
+LDLIBS (libUILink)
+LDLIBS (MrProt)
+LDLIBS (MeasSections)
+LDLIBS (libGSL)
+LDLIBS (CoilIF)
+LDLIBS (MrTrace)
+LDLIBS (MeasNucleiBase)
+LDLIBS (libSeqSysProp)
+LDLIBS (MrParc)
+LDLIBS (UTrace)			##LM
+LDLIBS (MrGenericDC)
+LDLIBS (MeasPatient)
+
+##-----------------------------------------------------------------------------
+## enter target name
+##
+LIB(Spiral_FinnPhD) 
+
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 1998  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
