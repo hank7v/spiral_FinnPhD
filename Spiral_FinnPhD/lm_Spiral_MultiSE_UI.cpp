@@ -357,6 +357,7 @@ using namespace SEQ_NAMESPACE;
         return MRI_STD_STRING;
     }
 
+    // here we set the delta and DELTA user's entries. ___FF___DOCS
     unsigned GetLabelId_DiffTimes(LINK_LONG_TYPE* const, char* arg_list[], long lIndex) {  //labels davor
         static const char* const pszLong0 = "Diff time";
         static const char* const pszLong1 = "Grad Dur1";
@@ -558,7 +559,7 @@ using namespace SEQ_NAMESPACE;
 
 		std::ostringstream TmpStream;
         TmpStream << "For multishot applications, this defines the number of shots."<<  std::endl;
-        TmpStream << "The readout trajectory is rotated by 360°/NoInterleaves for each shot." << std::endl;
+        TmpStream << "The readout trajectory is rotated by 360ï¿½/NoInterleaves for each shot." << std::endl;
 
         static char sToolTip [1024];
         strcpy (sToolTip, TmpStream.str().c_str());
